@@ -8,6 +8,7 @@
 ### Setup
 
 `python manage.py runserver`
+
 `docker run -p 6379:6379 redis`
 
 If you use virtualenv, next command will help you.
