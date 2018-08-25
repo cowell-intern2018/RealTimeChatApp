@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'chat',
     'accounts',
     'channels',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -132,4 +133,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'chat/'
+LOGIN_REDIRECT_URL = '/chat/'

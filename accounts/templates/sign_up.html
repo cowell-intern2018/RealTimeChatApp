@@ -1,0 +1,38 @@
+{% load widget_tweaks %}
+
+
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+<h1>Sign up</h1>
+<section class="common-form">
+
+    {% comment %} <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit">Sign up</button>
+    </form> {% endcomment %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            {% if form.is_bound %}
+                {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                {% endif %}
+            {% else %}
+                {% render_field field class="form-control" %}
+            {% endif %}
+            <br>
+        {% endfor %}
+        <button type="submit">Sign up</button>
+    </form>
+
+</section>
+{% endblock %}
