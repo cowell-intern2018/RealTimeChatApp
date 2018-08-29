@@ -3,6 +3,10 @@ from django.utils.safestring import mark_safe
 import json
 
 
+def top(request):
+    return render(request, 'chat/top.html')
+
+
 def index(request):
     return render(request, 'chat/index.html')
 

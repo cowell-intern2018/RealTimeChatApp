@@ -140,3 +140,4 @@ USE_TZ = True
 
 
 LOGIN_REDIRECT_URL = '/chat/'
+LOGOUT_REDIRECT_URL = '/'
