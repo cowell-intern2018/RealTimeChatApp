@@ -1,0 +1,25 @@
+{% load static %}
+
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<section class="common-form">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h3>Top Page</h3>
+                <a href="/accounts/signup/">Sign Up</a>
+                <br>
+                <a href="/accounts/login/">Login</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}
