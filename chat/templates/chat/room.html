@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 
 
@@ -8,6 +9,9 @@
     <title>Chat Room</title>
     <link rel="stylesheet" href="{% static 'chat/css/room.css' %}">
 </head>
+
+
+{% block content %}
 <body>
     <div id="chat-log" class="chat-message"></div>
     <input id="chat-message-input" class="input" type="text" size="100"/>
@@ -47,4 +51,5 @@
         messageInputDom.value = '';
     };
 </script>
+{% endblock %}
 </html>

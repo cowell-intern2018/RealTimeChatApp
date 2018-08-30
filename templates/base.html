@@ -8,32 +8,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'chat/css/base.css' %}">
     <title>Chat App</title>
 </head>
 <body>
-    <div class="ml-4">
-            <h1> Real Time Chat App</h1>
-    </div>
-    <div class="row mr-3">
-            <div class="col-12">
-                {% if user.is_authenticated %}
-                <div class="float-right">
-                    <a href="{% url 'logout' %}" class="logout btn btn-danger flex-lg-last" role="button">Logout</a>   
+        <div class="menu">
+            {% if user.is_authenticated %}
+             <h3>{{ user }}</h3>
+            {% else %}
+            <h3> guest </h3>
+            {% endif %}
+        </div>
+        
+        <div class="main">
+                <h1> Real Time Chat App</h1>
+                <div class="row">
+                        <div class="col-12">
+                            {% if user.is_authenticated %}
+                            <div class="float-right">
+                                <a href="{% url 'logout' %}" class="logout btn btn-danger flex-lg-last" role="button">Logout</a>   
+                            </div>
+                            {% else %}
+                            <div class="float-right ">
+                                <a href="{% url 'accounts:signup' %}" class="btn btn-primary flex-lg-last" role="button">Sign up</a>
+                                <a href="{% url 'login' %}" class="btn btn-success flex-lg-last" role="button">Login</a>
+                            </div>
+                            {% endif %}
+                        </div>
                 </div>
-                {% else %}
-                <div class="float-right ">
-                    <a href="{% url 'accounts:signup' %}" class="btn btn-primary flex-lg-last" role="button">Sign up</a>
-                    <a href="{% url 'login' %}" class="btn btn-success flex-lg-last" role="button">Login</a>
+                <hr color="black" width="90%" />
+                
+                <div class="content">
+                    {% block content %}{% endblock %}
                 </div>
-                {% endif %}
-            </div>
-            
-            
-    </div>
-    <hr color="black" width="90%" />
+
+
+        </div>
+   
+        
+
+
+
+
+
+
+
+
+
+
+
     
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
 </body>
 </html>
