@@ -12,11 +12,19 @@
 
 
 {% block content %}
-<body>
-    <div id="chat-log" class="chat-message"></div>
-    <input id="chat-message-input" class="input" type="text" size="100"/>
-    <input id="chat-message-submit" type="button" value="Send"/>
-</body>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="chat-log" class="chat-message">
+            </div>
+            <footer class="fixed-bottom text-right mx-4">
+                <input id="chat-message-input" class="input" type="text" size="100"/>
+                <input id="chat-message-submit" type="button" value="Send"/>
+            </footer>
+        </div>
+    </div>
+        
+
 <script>
     var roomName = {{ room_name_json }};
     var chatSocket = new WebSocket(
@@ -25,13 +33,11 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-
         var info = document.getElementById('chat-log');
         var pNode = document.createElement('p');
         var textNode = document.createTextNode(message);
         pNode.appendChild(textNode);
         info.appendChild(pNode);
-
     };
     chatSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');

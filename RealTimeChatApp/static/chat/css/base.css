@@ -1,4 +1,10 @@
+
 html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .inner-wrapper {
     width: 100%;
     height: 100%;
 }
@@ -7,11 +13,17 @@ html, body {
     float: left;
     height: 100%;
     width: 20%;
-    background: aqua;
-}
+    background: linear-gradient(yellow, orange);
+};
+
 
 .main {
     float: left;
     width: 80%;
     height: 100%;
+}
+
+.upperline {
+    width: 90%;
+    color: black;
 }
